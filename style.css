@@ -13,28 +13,27 @@
   --headingFontFam: "Caudex", serif;
 
   --borderDotSide: calc(var(--clockBorder) * 0.9);
+
+  /* changes for smaller viewports */
+
+  --numberBoxFontSize: 3.3vmin;
+  --numberBoxSide: 2.9rem;
+  /* radius excluding the border and the padding*/
+  --clockRadius: 22vmin;
+  --clockRadiusMin: 150;
+  --side: calc(2 * var(--clockRadius));
+  --sideMin: calc(2 * var(--clockRadiusMin));
+  /* additional width/height to the .clock div*/
+  --clockBorder: 15;
+  /* additional width/height to the .clock div*/
+  --clockPadding: 36;
+  --handThickness: 6;
+
+  --clockBorderShadowOut: 3;
+  --message-font-size: 4vmax;
 }
 
-@media screen and (max-width: 920px), (max-height: 920px) {
-  :root {
-    --numberBoxFontSize: 3.3vmin;
-    --numberBoxSide: 2.9rem;
-    /* radius excluding the border and the padding*/
-    --clockRadius: 22vmin;
-    --clockRadiusMin: 150;
-    --side: calc(2 * var(--clockRadius));
-    --sideMin: calc(2 * var(--clockRadiusMin));
-    /* additional width/height to the .clock div*/
-    --clockBorder: 15;
-    /* additional width/height to the .clock div*/
-    --clockPadding: 36;
-    --handThickness: 6;
-
-    --clockBorderShadowOut: 3;
-    --message-font-size: 4vmax;
-  }
-}
-@media screen and (max-width: 640px), (max-height: 640px) {
+@media (max-width: 640px), (max-height: 640px) {
   :root {
     --numberBoxFontSize: 3vmin;
     --numberBoxSide: 2.2rem;
