@@ -15,7 +15,7 @@
   --borderDotSide: calc(var(--clockBorder) * 0.9);
 }
 
-@media screen and (max-width: 920px), screen and (max-height: 920px) {
+@media screen and (max-width: 920px), (max-height: 920px) {
   :root {
     --numberBoxFontSize: 3.3vmin;
     --numberBoxSide: 2.9rem;
@@ -31,11 +31,10 @@
     --handThickness: 6;
 
     --clockBorderShadowOut: 3;
-    --message-font-size: 4.5vmin;
-    --message-offset: 7vh;
+    --message-font-size: 4vmax;
   }
 }
-@media screen and (max-width: 640px), screen and (max-height: 640px) {
+@media screen and (max-width: 640px), (max-height: 640px) {
   :root {
     --numberBoxFontSize: 3vmin;
     --numberBoxSide: 2.2rem;
@@ -50,17 +49,20 @@
 
     --clockBorderShadowOut: 2;
 
-    --message-font-size: 4.5vmin;
-    --message-offset: 7vh;
+    --message-font-size: 4vmax;
   }
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+
   /*background: linear-gradient(-225deg, rgba(230,160,130,0.4) 30%, rgba(246,346,106,0.2) 80%), url(http://unsplash.it/1500/1000) bottom center;*/
   background-color: var(--background);
   background-image: radial-gradient(transparent, hsla(0, 0%, 0%, 0.5));
@@ -68,21 +70,11 @@ body {
 }
 
 .message {
-  position: fixed;
   font-size: var(--message-font-size);
-  text-align: center;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: var(--headingFontFam);
-  width: 100%;
   color: var(--message-color);
-}
-
-.heading {
-  top: var(--message-offset);
-}
-.footing {
-  bottom: var(--message-offset);
+  text-align: center;
+  letter-spacing: 0.07em;
 }
 
 .clock {
@@ -96,7 +88,7 @@ body {
   box-shadow: 0 0 0 calc(var(--clockBorderShadowOut) * 1px)
       rgba(30, 30, 30, 0.7),
     inset 0 0 0 3px rgba(139, 139, 139, 0.5), inset 0 0 10px rgba(0, 0, 0, 1);
-  margin: auto;
+  margin: 10vmin auto;
   position: relative;
 }
 
