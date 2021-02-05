@@ -1,38 +1,58 @@
 :root {
   --background: hsl(120, 63%, 75%);
   --clockFrameColor: hsl(16, 100%, 50%);
-  --footingColor: hsl(16, 100%, 30%);
+  --messageColor: hsl(16, 80%, 20%);
   --borderDotColor: hsl(0, 0%, 0%);
   --handColor: black;
-  /* radius excluding the border and the padding*/
-  --clockRadius: 15vmin;
-  --clockRadiusMin: 200;
 
-  /* additional width/height to the .clock div*/
-  --clockBorder: 20;
-  /* additional width/height to the .clock div*/
-  --clockPadding: 48;
   --clockBorderShadowOut: 4;
-  --side: calc(2 * var(--clockRadius));
-  --sideMin: calc(2 * var(--clockRadiusMin));
   --handThickness: 7;
 
-  --numberBoxFontSize: 2.2rem;
-  --numberBoxSide: 3.1rem;
   --numberBoxColor: hsla(286, 100%, 25%, 1);
-  /* --numberBoxFontFam: "Arapey", serif; */
-  /* --numberBoxFontFam: "Alice", serif; */
   --numberBoxFontFam: "Caudex", serif;
-  /* --numberBoxFontFam: "Antic Didone", serif; */
-  /* --numberBoxFontFam: "Laila", serif; */
-
-  /* --headingFontFam: "Arapey", serif; */
-  /* --headingFontFam: "Alice", serif; */
   --headingFontFam: "Caudex", serif;
-  /* --headingFontFam: "Antic Didone", serif; */
-  /* --headingFontFam: "Laila", serif; */
 
   --borderDotSide: calc(var(--clockBorder) * 0.9);
+}
+
+@media screen and (max-width: 920px), screen and (max-height: 920px) {
+  :root {
+    --numberBoxFontSize: 3.3vmin;
+    --numberBoxSide: 2.9rem;
+    /* radius excluding the border and the padding*/
+    --clockRadius: 22vmin;
+    --clockRadiusMin: 150;
+    --side: calc(2 * var(--clockRadius));
+    --sideMin: calc(2 * var(--clockRadiusMin));
+    /* additional width/height to the .clock div*/
+    --clockBorder: 15;
+    /* additional width/height to the .clock div*/
+    --clockPadding: 36;
+    --handThickness: 6;
+
+    --clockBorderShadowOut: 3;
+    --message-font-size: 4.5vmin;
+    --message-offset: 7vh;
+  }
+}
+@media screen and (max-width: 640px), screen and (max-height: 640px) {
+  :root {
+    --numberBoxFontSize: 3vmin;
+    --numberBoxSide: 2.2rem;
+    /* radius excluding the border and the padding*/
+    --clockRadius: 15vmin;
+    --clockRadiusMin: 100;
+    --handThickness: 4;
+    /* additional width/height to the .clock div*/
+    --clockBorder: 10;
+    /* additional width/height to the .clock div*/
+    --clockPadding: 24;
+
+    --clockBorderShadowOut: 2;
+
+    --message-font-size: 4.5vmin;
+    --message-offset: 7vh;
+  }
 }
 
 body {
@@ -49,21 +69,20 @@ body {
 
 .message {
   position: fixed;
-  font-size: 2.6em;
+  font-size: var(--message-font-size);
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--headingFontFam);
   width: 100%;
+  color: var(--message-color);
 }
 
 .heading {
-  top: 10vh;
+  top: var(--message-offset);
 }
 .footing {
-  bottom: 10vh;
-  font-size: 3.2em;
-  color: var(--footingColor);
+  bottom: var(--message-offset);
 }
 
 .clock {
@@ -157,72 +176,4 @@ body {
 
 .hour-hand {
   width: calc(var(--handThickness) * 2.5 * 1px);
-}
-
-@media screen and (max-width: 920px) {
-  :root {
-    --numberBoxFontSize: 2.2rem;
-    --numberBoxSide: 2.9rem;
-    /* radius excluding the border and the padding*/
-    --clockRadius: 22vmin;
-    --clockRadiusMin: 150;
-    /* additional width/height to the .clock div*/
-    --clockBorder: 15;
-    /* additional width/height to the .clock div*/
-    --clockPadding: 36;
-    --handThickness: 6;
-
-    --clockBorderShadowOut: 3;
-  }
-}
-
-@media screen and (max-height: 920px) {
-  :root {
-    --numberBoxFontSize: 2.2rem;
-    --numberBoxSide: 2.9rem;
-    /* radius excluding the border and the padding*/
-    --clockRadius: 22vmin;
-    --clockRadiusMin: 150;
-    /* additional width/height to the .clock div*/
-    --clockBorder: 15;
-    /* additional width/height to the .clock div*/
-    --clockPadding: 36;
-    --handThickness: 6;
-
-    --clockBorderShadowOut: 3;
-  }
-}
-@media screen and (max-width: 640px) {
-  :root {
-    --numberBoxFontSize: 1.7rem;
-    --numberBoxSide: 2.2rem;
-    /* radius excluding the border and the padding*/
-    --clockRadius: 15vmin;
-    --clockRadiusMin: 100;
-    --handThickness: 4;
-
-    /* additional width/height to the .clock div*/
-    --clockBorder: 10;
-    /* additional width/height to the .clock div*/
-    --clockPadding: 24;
-
-    --clockBorderShadowOut: 2;
-  }
-}
-
-@media screen and (max-height: 640px) {
-  :root {
-    --numberBoxFontSize: 1.7rem;
-    --numberBoxSide: 2.2rem;
-    /* radius excluding the border and the padding*/
-    --clockRadius: 15vmin;
-    --clockRadiusMin: 100;
-    --handThickness: 4;
-    /* additional width/height to the .clock div*/
-    --clockBorder: 10;
-    /* additional width/height to the .clock div*/
-    --clockPadding: 24;
-
-    --clockBorderShadowOut: 2;
-  }
 }
